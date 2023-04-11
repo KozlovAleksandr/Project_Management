@@ -1,0 +1,52 @@
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 700px;
+  max-height: 64px;
+  padding: 10px;
+  background-color: var(--blue-light);
+  border-radius: 8px;
+  margin: 5px auto;
+  gap: 10px;
+  color: var(--yellow);
+
+  input[type='button'] {
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__check {
+    background: url('../../public/icons/check-solid.svg') no-repeat center;
+  }
+
+  &__trash {
+    background: url('../../public/icons/trash-can-regular.svg') no-repeat center;
+  }
+
+  &__info {
+    flex: 1;
+    text-align: start;
+    overflow: hidden;
+  }
+
+  &__text {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+  }
+
+  button {
+    border: none;
+    background: wheat;
+  }
+}
