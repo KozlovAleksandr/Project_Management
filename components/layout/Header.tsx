@@ -4,71 +4,59 @@ import {
   HiOutlineSquare3Stack3D,
   HiOutlineWallet,
 } from 'react-icons/hi2';
-import { FcPlus } from 'react-icons/fc';
-import { FiSearch, FiBell, FiSmile } from 'react-icons/fi';
+import { FiSearch, FiSmile } from 'react-icons/fi';
+import { v4 as uuidv4 } from 'uuid';
 
+import HeaderIcon from './HeaderIcon';
 import styles from './Header.module.scss';
 
 const Header = () => {
+  const items = [
+    {
+      label: '',
+      href: '',
+      icon: HiBars3,
+      id: uuidv4(),
+    },
+    {
+      label: 'Dashboard',
+      href: '/dashboard',
+      icon: HiOutlineSquare3Stack3D,
+      id: uuidv4(),
+    },
+    {
+      label: 'Collections',
+      href: '/collections',
+      icon: HiOutlineWallet,
+      id: uuidv4(),
+    },
+
+    {
+      label: '',
+      href: '',
+      icon: FiSearch,
+      id: uuidv4(),
+    },
+    {
+      label: '',
+      href: '/user/123',
+      icon: FiSmile,
+      id: uuidv4(),
+    },
+  ];
+
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <ul className={styles.nav__categories}>
-          <li>
-            <IconContext.Provider value={{ className: styles.reactIcons }}>
-              <div>
-                <HiBars3 />
-              </div>
-            </IconContext.Provider>
-          </li>
-          <li>
-            <IconContext.Provider value={{ className: styles.reactIcons }}>
-              <div>
-                <HiOutlineSquare3Stack3D />
-              </div>
-            </IconContext.Provider>
-            Dashboard
-          </li>
-          <li>
-            <IconContext.Provider value={{ className: styles.reactIcons }}>
-              <div>
-                <HiOutlineWallet />
-              </div>
-            </IconContext.Provider>
-            Collections
-          </li>
-        </ul>
-        <ul className={styles.nav__user}>
-          <li>
-            <IconContext.Provider value={{ className: styles.reactIcons }}>
-              <div>
-                <FcPlus />
-              </div>
-            </IconContext.Provider>
-          </li>
-          <li>
-            <IconContext.Provider value={{ className: styles.reactIcons }}>
-              <div>
-                <FiSearch />
-              </div>
-            </IconContext.Provider>
-          </li>
-          <li>
-            {' '}
-            <IconContext.Provider value={{ className: styles.reactIcons }}>
-              <div>
-                <FiBell />
-              </div>
-            </IconContext.Provider>
-          </li>
-          <li>
-            {' '}
-            <IconContext.Provider value={{ className: styles.reactIcons }}>
-              <div>
-                <FiSmile />
-              </div>
-            </IconContext.Provider>
-          </li>
+        <ul>
+          {items.map((item) => (
+            <HeaderIcon
+              key={item.id}
+              href={item.href}
+              label={item.label}
+              icon={item.icon}
+            />
+          ))}
         </ul>
       </nav>
     </header>
