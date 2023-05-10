@@ -1,0 +1,81 @@
+{
+  "tasks": [
+    {
+      "id": "c33ae003-15e6-47bd-b872-79f6ffcf9b7c",
+      "title": "Первая задача",
+      "description": "Описание первой задачи",
+      "date": "25.04.2023",
+      "status": "Низкий",
+      "category": "hobby",
+      "project": {
+        "projectId": "1",
+        "projectName": "Proooject"
+      }
+    },
+    {
+      "id": "63686fcd-babf-4f39-adb5-89f07021611b",
+      "title": "Вторая задача , для которой указано очень длинное название",
+      "description": "Описание второй задачи",
+      "date": "25.04.2023",
+      "status": "Высокий",
+      "category": "work",
+      "project": {
+        "projectId": "2",
+        "projectName": "Proooject"
+      }
+    },
+    {
+      "id": "c4d5b000-9ac6-45b6-80cf-fbf9378b5af5",
+      "title": "Третья задача",
+      "description": "If you want to add additional middleware to the store, be sure to use the specialized .concat() and .prepend() methods included in the array returned by getDefaultMiddleware(), as those will correctly preserve the types of the middleware you're adding. (Using plain JS array spreads often loses those types.)",
+      "date": "25.04.2023",
+      "status": "Выполнено",
+      "category": "home",
+      "project": {
+        "projectId": "2",
+        "projectName": "Proooject"
+      }
+    }
+  ],
+  "priorities": [
+    {
+      "name": "low",
+      "label": "Низкий",
+      "color": "bg-blue-300 text-blue-600"
+    },
+    {
+      "name": "medium",
+      "label": "Средний",
+      "color": "bg-orange-300 text-orange-600"
+    },
+    {
+      "name": "high",
+      "label": "Высокий",
+      "color": "bg-red-300 text-red-600"
+    },
+    {
+      "name": "completed",
+      "label": "Выполнено",
+      "color": "bg-green-300 text-green-600"
+    },
+    {
+      "name": "default",
+      "label": "Общее",
+      "color": "bg-amber-300 text-amber-600"
+    }
+  ],
+  "categories": [
+    {
+      "name": "hobby",
+      "label": "Хобби"
+    },
+    {
+      "name": "work",
+      "label": "Работа"
+    },
+    {
+      "name": "home",
+      "label": "Дом"
+    }
+  ]
+}
