@@ -8,8 +8,14 @@ import Icon from './layout/Icon';
 import { Button } from './Button';
 import { useDispatch } from 'react-redux';
 import { toggleModal } from '@/actions';
+import { useEffect, useState } from 'react';
+import { useHttp } from '@/hooks/http.hook';
 
 const Sidebar = () => {
+  const [projects, setProjects] = useState([]);
+
+  const { request } = useHttp();
+
   const items = [
     {
       label: 'Входящие',
@@ -37,6 +43,14 @@ const Sidebar = () => {
   const toggleModalHandler = () => {
     dispatch(toggleModal());
   };
+
+  useEffect(() => {
+    request('http://localhost:3001/projects')
+      .then((data) => setProjects(data))
+      .catch(() => console.log('priorities error'));
+
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div className="flex flex-col justify-between items-start bg-[#181920] w-[276px] px-3 text-sm font-extralight">
@@ -68,6 +82,16 @@ const Sidebar = () => {
             onClick={toggleModalHandler}
           />
         </div>
+        {projects &&
+          projects.map(({ id, title, color }) => (
+            <Link
+              href={'/'}
+              key={id}
+              className={`flex gap-2 items-center w-full p-2 rounded-md }`}
+            >
+              {title}
+            </Link>
+          ))}
       </div>
     </div>
   );

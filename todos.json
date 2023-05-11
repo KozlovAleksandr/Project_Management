@@ -37,6 +37,38 @@
       }
     }
   ],
+  "projects": [
+    {
+      "id": "c42d0d5d-5b61-4f12-82b8-5ac17abb1f3f",
+      "title": "Новый проект",
+      "color": "#500b9c"
+    },
+    {
+      "id": "366db2d3-ce81-4d78-9868-7575d6382fb5",
+      "title": "vsdv",
+      "color": "#915d77"
+    },
+    {
+      "id": "c2c6fb09-5c92-42af-aeb0-53e75089d517",
+      "title": "vds",
+      "color": "#186c44"
+    },
+    {
+      "id": "22380341-8f82-4b5b-8e79-a38f0fda14da",
+      "title": "vdf",
+      "color": "#4f2c4b"
+    },
+    {
+      "id": "56754f23-70d7-4443-8c90-3108031e708c",
+      "title": "vfd",
+      "color": "#8edc87"
+    },
+    {
+      "id": "dc7220c4-74d7-4267-81fb-e17e6291fe1e",
+      "title": "vfdf",
+      "color": "#b7555"
+    }
+  ],
   "priorities": [
     {
       "name": "low",

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Header from './layout/Header';
 import Modal from './Modal';
+import ModalProject from './ModalProject';
+
 import Sidebar from './Sidebar';
 
 interface LayoutProps {
@@ -8,12 +10,11 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  // const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-
   return (
     <div style={{ height: 'calc(100vh - 48px)' }}>
       <div className="h-full mx-auto">
         <Modal />
+        <ModalProject />
         <Header />
         <div className="flex h-full">
           <Sidebar />

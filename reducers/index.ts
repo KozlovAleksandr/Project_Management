@@ -1,5 +1,6 @@
 const initialState = {
   isModalOpen: false,
+  projects: [],
   tasks: [],
   tasksLoadingStatus: 'idle',
   filters: [],
@@ -16,6 +17,12 @@ const reducer = (
       return {
         ...state,
         isModalOpen: !state.isModalOpen,
+      };
+
+    case 'ADD_PROJECT':
+      return {
+        ...state,
+        projects: [...state.projects, action.payload],
       };
 
     case 'ADD_TASK':

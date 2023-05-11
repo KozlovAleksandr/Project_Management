@@ -39,6 +39,12 @@ export const toggleModal = () => {
   };
 };
 
+export const addProject = (project: any) => {
+  return {
+    type: 'ADD_PROJECT',
+    payload: project,
+  };
+};
 export const addTask = (task: Task) => {
   return {
     type: 'ADD_TASK',
