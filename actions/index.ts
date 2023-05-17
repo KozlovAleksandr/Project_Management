@@ -19,6 +19,13 @@ export const tasksFetchingError = () => {
   };
 };
 
+export const addTask = (task: Task) => {
+  return {
+    type: 'ADD_TASK',
+    payload: task,
+  };
+};
+
 export const prioritiesFetched = (priorities: any) => {
   return {
     type: 'PRIORITIES_FETCHED',
@@ -33,15 +40,28 @@ export const categoriesFetched = (categories: any) => {
   };
 };
 
-export const toggleModal = () => {
+export const toggleTaskModal = () => {
   return {
-    type: 'TOGGLE_MODAL',
+    type: 'TOGGLE_TASK_MODAL',
   };
 };
 
-export const addTask = (task: Task) => {
+export const toggleProjectkModal = () => {
   return {
-    type: 'ADD_TASK',
-    payload: task,
+    type: 'TOGGLE_PROJECT_MODAL',
+  };
+};
+
+export const addProject = (project: any) => {
+  return {
+    type: 'ADD_PROJECT',
+    payload: project,
+  };
+};
+
+export const projectsFetched = (projects: any) => {
+  return {
+    type: 'PROJECTS_FETCHED',
+    payload: projects,
   };
 };
