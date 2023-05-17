@@ -7,13 +7,13 @@ import {
   addTask,
   categoriesFetched,
   prioritiesFetched,
-  toggleModal,
+  toggleTaskModal,
 } from '@/actions';
 
 import { useHttp } from '@/hooks/http.hook';
 
 type RootState = {
-  isModalOpen: boolean;
+  isTaskModalOpen: boolean;
   priorities: {
     name: string;
     label: string;
@@ -32,7 +32,7 @@ const Modal: React.FC = () => {
   const [categorie, setCategorie] = useState('');
 
   const dispatch = useDispatch();
-  const { isModalOpen, priorities, categories } = useSelector(
+  const { isTaskModalOpen, priorities, categories } = useSelector(
     (state: RootState) => state
   );
 
@@ -59,6 +59,10 @@ const Modal: React.FC = () => {
         description: taskDescription,
         date: new Date().toLocaleDateString(),
         category: categorie,
+        project: {
+          projectId: '1',
+          projectName: 'name',
+        },
       };
 
       request('http://localhost:3001/tasks', 'POST', JSON.stringify(newTask))
@@ -67,14 +71,14 @@ const Modal: React.FC = () => {
 
       setTaskTitle('');
       setTaskDescription('');
-      dispatch(toggleModal());
+      dispatch(toggleTaskModal());
     }
   };
 
   return (
     <div
       className={`bg-[#23242c] w-[550px] border border-slate-700 rounded-md text-sm font-extralight fixed top-24  text-white p-3 drop-shadow-[0_35px_35px_rgba(0,0,0,0.9)] ${
-        !isModalOpen ? 'hidden' : null
+        !isTaskModalOpen ? 'hidden' : null
       }`}
       style={{ left: 'calc(50% - 275px)' }}
     >
@@ -95,7 +99,7 @@ const Modal: React.FC = () => {
           />
         </div>
 
-        <div className="flex justify-between">
+        <div className="flex justify-between px-2">
           <div className="flex gap-2">
             <select
               required
@@ -136,14 +140,21 @@ const Modal: React.FC = () => {
                 })}
             </select>
           </div>
-          <Button
-            classes={`bg-[#5050be]  py-1 px-2 rounded-md ${
-              !taskTitle ? 'opacity-25' : null
-            }`}
-            label="Добавить задачу"
-            type="submit"
-            disabled={!taskTitle}
-          />
+          <div className="flex justify-end gap-2">
+            <Button
+              classes="bg-zinc-600 py-1 px-2 rounded-md hover:bg-zinc-700"
+              label="Отмена"
+              type="reset"
+            />
+            <Button
+              classes={`bg-sky-800 py-1 px-2 rounded-md ${
+                !taskTitle ? 'opacity-25' : 'hover:bg-sky-700'
+              }`}
+              label="Добавить задачу"
+              type="submit"
+              disabled={!taskTitle}
+            />
+          </div>
         </div>
       </form>
     </div>

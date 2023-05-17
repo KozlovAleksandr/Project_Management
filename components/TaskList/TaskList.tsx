@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Task } from '@/types';
 import TaskListItem from '../TaskListItem/TaskListItem';
 
-const TaskList = () => {
-  type RootState = {
-    tasks: Task[];
-    tasksLoadingStatus: string;
-  };
+type RootState = {
+  tasks: Task[];
+  tasksLoadingStatus: string;
+};
 
+const TaskList: React.FC = () => {
   const { tasks, tasksLoadingStatus } = useSelector(
     (state: RootState) => state
   );

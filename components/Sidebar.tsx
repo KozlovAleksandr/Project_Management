@@ -6,13 +6,22 @@ import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
 import Icon from './layout/Icon';
 import { Button } from './Button';
-import { useDispatch } from 'react-redux';
-import { toggleModal } from '@/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  toggleTaskModal,
+  toggleProjectkModal,
+  projectsFetched,
+} from '@/actions';
 import { useEffect, useState } from 'react';
 import { useHttp } from '@/hooks/http.hook';
+import { Project } from '@/types';
 
-const Sidebar = () => {
-  const [projects, setProjects] = useState([]);
+type RootState = {
+  projects: Project[];
+};
+
+const Sidebar: React.FC = () => {
+  const { projects } = useSelector((state: RootState) => state);
 
   const { request } = useHttp();
 
@@ -40,13 +49,17 @@ const Sidebar = () => {
   const { pathname } = useRouter();
   const dispatch = useDispatch();
 
-  const toggleModalHandler = () => {
-    dispatch(toggleModal());
+  const toggleModalHandler = (modalType: string) => {
+    if (modalType === 'task') {
+      dispatch(toggleTaskModal());
+    } else if (modalType === 'project') {
+      dispatch(toggleProjectkModal());
+    }
   };
 
   useEffect(() => {
     request('http://localhost:3001/projects')
-      .then((data) => setProjects(data))
+      .then((data) => dispatch(projectsFetched(data)))
       .catch(() => console.log('priorities error'));
 
     // eslint-disable-next-line
@@ -60,7 +73,7 @@ const Sidebar = () => {
           label="Новая задача"
           icon={RxPencil1}
           type="button"
-          onClick={toggleModalHandler}
+          onClick={() => toggleModalHandler('task')}
         />
         {items.map(({ id, label, href, icon }) => (
           <Link
@@ -79,7 +92,7 @@ const Sidebar = () => {
             classes=""
             icon={MdAdd}
             type="button"
-            onClick={toggleModalHandler}
+            onClick={() => toggleModalHandler('project')}
           />
         </div>
         {projects &&
@@ -87,7 +100,7 @@ const Sidebar = () => {
             <Link
               href={'/'}
               key={id}
-              className={`flex gap-2 items-center w-full p-2 rounded-md }`}
+              className="flex gap-2 items-center w-full p-2 rounded-md bg-neutral-800 hover:bg-neutral-700 text-neutral-200"
             >
               {title}
             </Link>

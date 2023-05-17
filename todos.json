@@ -35,6 +35,14 @@
         "projectId": "2",
         "projectName": "Proooject"
       }
+    },
+    {
+      "id": "c1be1802-4a42-4011-8fe6-2490784993da",
+      "title": "Новая задача ",
+      "status": "Средний",
+      "description": "",
+      "date": "17.05.2023",
+      "category": "Работа"
     }
   ],
   "projects": [
@@ -44,29 +52,24 @@
       "color": "#500b9c"
     },
     {
-      "id": "366db2d3-ce81-4d78-9868-7575d6382fb5",
-      "title": "vsdv",
-      "color": "#915d77"
+      "id": "8c8866bd-f5fa-4e91-ad91-e463283a52e0",
+      "title": "v",
+      "color": "#c70a33"
     },
     {
-      "id": "c2c6fb09-5c92-42af-aeb0-53e75089d517",
-      "title": "vds",
-      "color": "#186c44"
+      "id": "ad690257-baf6-45cc-9f87-ccb76b76ea34",
+      "title": "Новый",
+      "color": "#413ca9"
     },
     {
-      "id": "22380341-8f82-4b5b-8e79-a38f0fda14da",
-      "title": "vdf",
-      "color": "#4f2c4b"
+      "id": "8808bed6-fbaf-44d2-b5ef-b093ff436bc2",
+      "title": "Новый",
+      "color": "#923af0"
     },
     {
-      "id": "56754f23-70d7-4443-8c90-3108031e708c",
-      "title": "vfd",
-      "color": "#8edc87"
-    },
-    {
-      "id": "dc7220c4-74d7-4267-81fb-e17e6291fe1e",
-      "title": "vfdf",
-      "color": "#b7555"
+      "id": "e863da07-24ab-43d3-bc4c-efde6127d5fa",
+      "title": "2",
+      "color": "#f5f15f"
     }
   ],
   "priorities": [
