@@ -5,4 +5,14 @@ export type Task = {
   description: string;
   date: string;
   category: string;
+  project: {
+    projectId: string;
+    projectName: string;
+  };
+};
+
+export type Project = {
+  id: string;
+  title: string;
+  color: string;
 };

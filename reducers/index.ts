@@ -1,5 +1,7 @@
 const initialState = {
-  isModalOpen: false,
+  isTaskModalOpen: false,
+  isProjectModalOpen: false,
+  projects: [],
   tasks: [],
   tasksLoadingStatus: 'idle',
   filters: [],
@@ -12,10 +14,26 @@ const reducer = (
   action: { type: string; payload: any }
 ) => {
   switch (action.type) {
-    case 'TOGGLE_MODAL':
+    case 'TOGGLE_TASK_MODAL':
       return {
         ...state,
-        isModalOpen: !state.isModalOpen,
+        isTaskModalOpen: !state.isTaskModalOpen,
+      };
+    case 'TOGGLE_PROJECT_MODAL':
+      return {
+        ...state,
+        isProjectModalOpen: !state.isProjectModalOpen,
+      };
+    case 'ADD_PROJECT':
+      return {
+        ...state,
+        projects: [...state.projects, action.payload],
+      };
+
+    case 'PROJECTS_FETCHED':
+      return {
+        ...state,
+        projects: action.payload,
       };
 
     case 'ADD_TASK':
