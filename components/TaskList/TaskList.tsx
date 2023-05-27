@@ -44,7 +44,7 @@ const TaskList: React.FC = () => {
   };
 
   const elements = renderHeroesList(tasks);
-  return <div className="flex flex-wrap">{elements}</div>;
+  return <div className="px-4">{elements}</div>;
 };
 
 export default TaskList;

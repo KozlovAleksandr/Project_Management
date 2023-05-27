@@ -55,7 +55,8 @@ const Modal: React.FC = () => {
       const newTask: Task = {
         id: uuidv4(),
         title: taskTitle,
-        status: prioritie,
+        status: 'active',
+        prioritie: prioritie,
         description: taskDescription,
         date: new Date().toLocaleDateString(),
         category: categorie,

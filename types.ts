@@ -1,7 +1,8 @@
 export type Task = {
   id: string;
   title: string;
-  status: string;
+  status: 'active' | 'completed';
+  prioritie: string;
   description: string;
   date: string;
   category: string;

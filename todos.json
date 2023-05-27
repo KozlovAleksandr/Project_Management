@@ -1,48 +1,30 @@
 {
   "tasks": [
     {
-      "id": "c33ae003-15e6-47bd-b872-79f6ffcf9b7c",
-      "title": "Первая задача",
-      "description": "Описание первой задачи",
-      "date": "25.04.2023",
-      "status": "Низкий",
-      "category": "hobby",
+      "id": "aede97c6-50ae-4000-8174-a5737b1d2a3a",
+      "title": "#1",
+      "status": "active",
+      "prioritie": "Средний",
+      "description": "",
+      "date": "27.05.2023",
+      "category": "Работа",
       "project": {
         "projectId": "1",
-        "projectName": "Proooject"
+        "projectName": "name"
       }
     },
     {
-      "id": "63686fcd-babf-4f39-adb5-89f07021611b",
-      "title": "Вторая задача , для которой указано очень длинное название",
-      "description": "Описание второй задачи",
-      "date": "25.04.2023",
-      "status": "Высокий",
-      "category": "work",
-      "project": {
-        "projectId": "2",
-        "projectName": "Proooject"
-      }
-    },
-    {
-      "id": "c4d5b000-9ac6-45b6-80cf-fbf9378b5af5",
-      "title": "Третья задача",
-      "description": "If you want to add additional middleware to the store, be sure to use the specialized .concat() and .prepend() methods included in the array returned by getDefaultMiddleware(), as those will correctly preserve the types of the middleware you're adding. (Using plain JS array spreads often loses those types.)",
-      "date": "25.04.2023",
-      "status": "Выполнено",
-      "category": "home",
-      "project": {
-        "projectId": "2",
-        "projectName": "Proooject"
-      }
-    },
-    {
-      "id": "c1be1802-4a42-4011-8fe6-2490784993da",
-      "title": "Новая задача ",
-      "status": "Средний",
+      "id": "2d272e5c-5a84-4d6f-b215-677d69d404fd",
+      "title": "#2",
+      "status": "active",
+      "prioritie": "Высокий",
       "description": "",
-      "date": "17.05.2023",
-      "category": "Работа"
+      "date": "27.05.2023",
+      "category": "Дом",
+      "project": {
+        "projectId": "1",
+        "projectName": "name"
+      }
     }
   ],
   "projects": [
@@ -50,26 +32,6 @@
       "id": "c42d0d5d-5b61-4f12-82b8-5ac17abb1f3f",
       "title": "Новый проект",
       "color": "#500b9c"
-    },
-    {
-      "id": "8c8866bd-f5fa-4e91-ad91-e463283a52e0",
-      "title": "v",
-      "color": "#c70a33"
-    },
-    {
-      "id": "ad690257-baf6-45cc-9f87-ccb76b76ea34",
-      "title": "Новый",
-      "color": "#413ca9"
-    },
-    {
-      "id": "8808bed6-fbaf-44d2-b5ef-b093ff436bc2",
-      "title": "Новый",
-      "color": "#923af0"
-    },
-    {
-      "id": "e863da07-24ab-43d3-bc4c-efde6127d5fa",
-      "title": "2",
-      "color": "#f5f15f"
     }
   ],
   "priorities": [
@@ -87,16 +49,6 @@
       "name": "high",
       "label": "Высокий",
       "color": "bg-red-300 text-red-600"
-    },
-    {
-      "name": "completed",
-      "label": "Выполнено",
-      "color": "bg-green-300 text-green-600"
-    },
-    {
-      "name": "default",
-      "label": "Общее",
-      "color": "bg-amber-300 text-amber-600"
     }
   ],
   "categories": [

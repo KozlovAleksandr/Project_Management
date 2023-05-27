@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { BsThreeDots } from 'react-icons/bs';
-import Icon from '../layout/Icon';
+import { BsFillFlagFill } from 'react-icons/bs';
 import { Task } from '@/types';
+import { IconContext } from 'react-icons';
 
 const TaskListItem: FC<Task> = ({
   id,
@@ -9,44 +9,42 @@ const TaskListItem: FC<Task> = ({
   description,
   date,
   status,
+  prioritie,
   category,
 }) => {
   let elementClassName;
 
-  switch (status) {
+  switch (prioritie) {
     case 'Низкий':
-      elementClassName = 'bg-blue-300 text-blue-600';
+      elementClassName = 'text-blue-600';
       break;
     case 'Средний':
-      elementClassName = 'bg-orange-300 text-orange-600';
+      elementClassName = 'text-orange-600';
       break;
     case 'Высокий':
-      elementClassName = 'bg-red-300 text-red-600';
-      break;
-    case 'Выполнено':
-      elementClassName = 'bg-green-300 text-green-600';
+      elementClassName = 'text-red-600';
       break;
     default:
-      elementClassName = 'bg-amber-300 text-amber-600';
+      elementClassName = 'text-stone-600';
   }
 
   return (
-    <div className="bg-slate-200 m-3 w-80 h-48 flex flex-col justify-between p-3.5 border rounded-lg ">
-      <div>
-        <div className="flex justify-between">
-          <div className={`px-2 py-1 rounded-lg text-sm  ${elementClassName}`}>
-            {status}
+    <div className="mb-2 mx-auto max-w-6xl p-2 pt-0 border-b rounded-b-lg border-slate-700 text-neutral-200 cursor-pointer">
+      <div className="mb-1">
+        <div className="flex items-center">
+          <button className="border border-slate-700 w-5 h-5 mr-2 p-1 rounded-full hover:bg-green-900 ease-linear duration-200" />
+          <span className="w-full text-lg line-clamp-1 ">{title}</span>
+          <div className={`flex mx-2 ${elementClassName}`}>
+            <BsFillFlagFill />
           </div>
-          <Icon icon={BsThreeDots} />
         </div>
-        <span className="block w-full mt-1 mb-1 text-lg font-semibold overflow-hidden whitespace-nowrap">
-          {title}
-        </span>
-        <p className="text-xs font-normal overflow-hidden max-h-16">
+
+        <p className="text-xs overflow-hidden max-h-16 line-clamp-2">
           {description}
         </p>
       </div>
-      <div className="flex justify-between text-sm">
+
+      <div className="flex justify-between text-xs">
         <span>{date.toString()}</span>
         <span>{category}</span>
       </div>
