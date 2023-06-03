@@ -11,6 +11,7 @@ import {
 } from '@/actions';
 
 import { useHttp } from '@/hooks/http.hook';
+import Datepicker from './Datepicker';
 
 type RootState = {
   isTaskModalOpen: boolean;
@@ -99,48 +100,48 @@ const Modal: React.FC = () => {
             onChange={(e) => setTaskDescription(e.target.value)}
           />
         </div>
+        <div className="flex border-b border-slate-700 p-2">
+          {/* <Datepicker /> */}
+          {/* <select
+            required
+            className="bg-[#31333e] rounded-md px-3 border-0 outline-0 appearance-none text-center cursor-pointer"
+            id="prioritie"
+            name="element"
+            onChange={(e) => setPrioritie(e.target.value)}
+          >
+            <option value="">Приоритет</option>
+            {priorities &&
+              priorities.map(({ name, label, color }) => {
+                if (name === 'default') {
+                  return null;
+                }
+                return (
+                  <option value={label} key={name} className={color}>
+                    {label}
+                  </option>
+                );
+              })}
+          </select> */}
+        </div>
+        <div className="flex justify-between p-2 pb-0">
+          <select
+            required
+            className="bg-[#31333e] rounded-md px-3 border-0 outline-0 appearance-none text-center cursor-pointer"
+            id="element"
+            name="element"
+            onChange={(e) => setCategorie(e.target.value)}
+          >
+            <option value="cat">Категория</option>
 
-        <div className="flex justify-between px-2">
-          <div className="flex gap-2">
-            <select
-              required
-              className="bg-[#31333e] rounded-md px-3 border-0 outline-0 appearance-none text-center cursor-pointer"
-              id="element"
-              name="element"
-              onChange={(e) => setCategorie(e.target.value)}
-            >
-              <option value="">Категория</option>
-
-              {categories &&
-                categories.map(({ name, label }) => {
-                  return (
-                    <option value={label} key={name}>
-                      {label}
-                    </option>
-                  );
-                })}
-            </select>
-            <select
-              required
-              className="bg-[#31333e] rounded-md px-3 border-0 outline-0 appearance-none text-center cursor-pointer"
-              id="prioritie"
-              name="element"
-              onChange={(e) => setPrioritie(e.target.value)}
-            >
-              <option value="">Приоритет</option>
-              {priorities &&
-                priorities.map(({ name, label, color }) => {
-                  if (name === 'default') {
-                    return null;
-                  }
-                  return (
-                    <option value={label} key={name} className={color}>
-                      {label}
-                    </option>
-                  );
-                })}
-            </select>
-          </div>
+            {categories &&
+              categories.map(({ name, label }) => {
+                return (
+                  <option value={label} key={name}>
+                    {label}
+                  </option>
+                );
+              })}
+          </select>
           <div className="flex justify-end gap-2">
             <Button
               classes="bg-zinc-600 py-1 px-2 rounded-md hover:bg-zinc-700"
