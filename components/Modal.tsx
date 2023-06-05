@@ -78,6 +78,10 @@ const Modal: React.FC = () => {
     }
   };
 
+  const toggleModalHandler = (modalType: string): void => {
+    dispatch(toggleTaskModal());
+  };
+
   return (
     <div
       className={`bg-[#23242c] w-[550px] border border-slate-700 rounded-md text-sm font-extralight fixed top-24  text-white p-3 drop-shadow-[0_35px_35px_rgba(0,0,0,0.9)] ${
@@ -148,6 +152,7 @@ const Modal: React.FC = () => {
               classes="bg-zinc-600 py-1 px-2 rounded-md hover:bg-zinc-700"
               label="Отмена"
               type="reset"
+              onClick={() => toggleModalHandler('task')}
             />
             <Button
               classes={`bg-sky-800 py-1 px-2 rounded-md ${
