@@ -1,29 +1,39 @@
 {
   "tasks": [
     {
-      "id": "aede97c6-50ae-4000-8174-a5737b1d2a3a",
-      "title": "#1",
+      "id": "af52f221-73ca-4afc-a1d5-2500cdeb2a44",
+      "title": "1",
       "status": "active",
-      "prioritie": "Средний",
+      "prioritie": "",
       "description": "",
-      "date": "27.05.2023",
-      "category": "Работа",
+      "date": "2023-06-05T20:41:21.736Z",
       "project": {
-        "projectId": "1",
-        "projectName": "name"
+        "projectId": "project",
+        "projectName": "Новый проект"
       }
     },
     {
-      "id": "2d272e5c-5a84-4d6f-b215-677d69d404fd",
-      "title": "#2",
+      "id": "68b41311-1b25-4436-9a6a-333913d0516c",
+      "title": "2",
       "status": "active",
       "prioritie": "Высокий",
       "description": "",
-      "date": "27.05.2023",
-      "category": "Дом",
+      "date": "2023-06-05T20:41:21.736Z",
       "project": {
-        "projectId": "1",
-        "projectName": "name"
+        "projectId": "project",
+        "projectName": "Входящие"
+      }
+    },
+    {
+      "id": "d35b1dc3-8c81-41aa-9f5a-438633338122",
+      "title": "3",
+      "status": "active",
+      "prioritie": "Средний",
+      "description": "",
+      "date": "2023-06-05T20:41:21.736Z",
+      "project": {
+        "projectId": "project",
+        "projectName": "Новый проект"
       }
     }
   ],

@@ -4,8 +4,7 @@ export type Task = {
   status: 'active' | 'completed';
   prioritie: string;
   description: string;
-  date: string;
-  category: string;
+  date: Date | null;
   project: {
     projectId: string;
     projectName: string;
