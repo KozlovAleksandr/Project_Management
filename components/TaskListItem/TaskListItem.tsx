@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { BsFillFlagFill } from 'react-icons/bs';
 import { Task } from '@/types';
 import { IconContext } from 'react-icons';
+import generateDate from '@/services/generateDate';
 
 const TaskListItem: FC<Task> = ({
   id,
@@ -45,7 +46,7 @@ const TaskListItem: FC<Task> = ({
       </div>
 
       <div className="flex justify-between text-xs">
-        <span>{date.toString()}</span>
+        <span>{date && generateDate(new Date(), new Date(date))}</span>
         <span>{category}</span>
       </div>
     </div>

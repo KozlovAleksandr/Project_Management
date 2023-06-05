@@ -31,6 +31,7 @@ const Modal: React.FC = () => {
   const [taskDescription, setTaskDescription] = useState('');
   const [prioritie, setPrioritie] = useState('');
   const [categorie, setCategorie] = useState('');
+  const [targetDay, setTargetDay] = useState<Date | null>(null);
 
   const dispatch = useDispatch();
   const { isTaskModalOpen, priorities, categories } = useSelector(
@@ -59,7 +60,7 @@ const Modal: React.FC = () => {
         status: 'active',
         prioritie: prioritie,
         description: taskDescription,
-        date: new Date().toLocaleDateString(),
+        date: targetDay,
         category: categorie,
         project: {
           projectId: '1',
@@ -100,9 +101,9 @@ const Modal: React.FC = () => {
             onChange={(e) => setTaskDescription(e.target.value)}
           />
         </div>
-        <div className="flex border-b border-slate-700 p-2">
-          {/* <Datepicker /> */}
-          {/* <select
+        <div className="flex justify-between border-b border-slate-700 p-2">
+          <Datepicker setTargetDayHandler={setTargetDay} />
+          <select
             required
             className="bg-[#31333e] rounded-md px-3 border-0 outline-0 appearance-none text-center cursor-pointer"
             id="prioritie"
@@ -121,7 +122,7 @@ const Modal: React.FC = () => {
                   </option>
                 );
               })}
-          </select> */}
+          </select>
         </div>
         <div className="flex justify-between p-2 pb-0">
           <select
