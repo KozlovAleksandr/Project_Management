@@ -5,7 +5,6 @@ export type Task = {
   prioritie: string;
   description: string;
   date: Date | null;
-  category: string;
   project: {
     projectId: string;
     projectName: string;

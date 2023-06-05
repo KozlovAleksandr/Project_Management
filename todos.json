@@ -1,42 +1,39 @@
 {
   "tasks": [
     {
-      "id": "12cf7918-15d4-4f3e-ad55-6942f1d5234e",
-      "title": "# 1",
+      "id": "af52f221-73ca-4afc-a1d5-2500cdeb2a44",
+      "title": "1",
       "status": "active",
       "prioritie": "",
       "description": "",
-      "date": "2023-06-04T20:29:01.860Z",
-      "category": "",
+      "date": "2023-06-05T20:41:21.736Z",
       "project": {
-        "projectId": "1",
-        "projectName": "name"
+        "projectId": "project",
+        "projectName": "Новый проект"
       }
     },
     {
-      "id": "c8c82edf-fd13-43be-92ab-b9539ffcdeea",
-      "title": "# 2",
+      "id": "68b41311-1b25-4436-9a6a-333913d0516c",
+      "title": "2",
       "status": "active",
-      "prioritie": "",
+      "prioritie": "Высокий",
       "description": "",
-      "date": "2023-06-05T20:29:16.860Z",
-      "category": "",
+      "date": "2023-06-05T20:41:21.736Z",
       "project": {
-        "projectId": "1",
-        "projectName": "name"
+        "projectId": "project",
+        "projectName": "Входящие"
       }
     },
     {
-      "id": "875ba17f-128c-4139-8591-5a0f0a4d3abd",
-      "title": "# 3",
+      "id": "d35b1dc3-8c81-41aa-9f5a-438633338122",
+      "title": "3",
       "status": "active",
-      "prioritie": "",
+      "prioritie": "Средний",
       "description": "",
-      "date": "2023-06-06T20:29:43.526Z",
-      "category": "",
+      "date": "2023-06-05T20:41:21.736Z",
       "project": {
-        "projectId": "1",
-        "projectName": "name"
+        "projectId": "project",
+        "projectName": "Новый проект"
       }
     }
   ],

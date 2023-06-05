@@ -5,13 +5,11 @@ import { IconContext } from 'react-icons';
 import generateDate from '@/services/generateDate';
 
 const TaskListItem: FC<Task> = ({
-  id,
   title,
   description,
   date,
-  status,
   prioritie,
-  category,
+  project: { projectName },
 }) => {
   let elementClassName;
 
@@ -47,7 +45,7 @@ const TaskListItem: FC<Task> = ({
 
       <div className="flex justify-between text-xs">
         <span>{date && generateDate(new Date(), new Date(date))}</span>
-        <span>{category}</span>
+        <span>{projectName}</span>
       </div>
     </div>
   );

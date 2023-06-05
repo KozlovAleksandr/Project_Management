@@ -5,8 +5,8 @@ import { Button } from './Button';
 import { Task } from '@/types';
 import {
   addTask,
-  categoriesFetched,
   prioritiesFetched,
+  projectsFetched,
   toggleTaskModal,
 } from '@/actions';
 
@@ -20,9 +20,10 @@ type RootState = {
     label: string;
     color: string;
   }[];
-  categories: {
-    name: string;
-    label: string;
+  projects: {
+    id: string;
+    title: string;
+    color: string;
   }[];
 };
 
@@ -30,11 +31,16 @@ const Modal: React.FC = () => {
   const [taskTitle, setTaskTitle] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
   const [prioritie, setPrioritie] = useState('');
-  const [categorie, setCategorie] = useState('');
+  const [project, setProject] = useState({
+    projectId: '',
+    projectName: '',
+  });
   const [targetDay, setTargetDay] = useState<Date | null>(null);
 
+  console.log(project);
+
   const dispatch = useDispatch();
-  const { isTaskModalOpen, priorities, categories } = useSelector(
+  const { isTaskModalOpen, priorities, projects } = useSelector(
     (state: RootState) => state
   );
 
@@ -45,9 +51,9 @@ const Modal: React.FC = () => {
       .then((data) => dispatch(prioritiesFetched(data)))
       .catch(() => console.log('priorities error'));
 
-    request('http://localhost:3001/categories')
-      .then((data) => dispatch(categoriesFetched(data)))
-      .catch(() => console.log('categories error'));
+    request('http://localhost:3001/projects')
+      .then((data) => dispatch(projectsFetched(data)))
+      .catch(() => console.log('projects error'));
     // eslint-disable-next-line
   }, []);
 
@@ -61,11 +67,7 @@ const Modal: React.FC = () => {
         prioritie: prioritie,
         description: taskDescription,
         date: targetDay,
-        category: categorie,
-        project: {
-          projectId: '1',
-          projectName: 'name',
-        },
+        project: project,
       };
 
       request('http://localhost:3001/tasks', 'POST', JSON.stringify(newTask))
@@ -74,6 +76,8 @@ const Modal: React.FC = () => {
 
       setTaskTitle('');
       setTaskDescription('');
+      setPrioritie('');
+      setTargetDay(null);
       dispatch(toggleTaskModal());
     }
   };
@@ -114,16 +118,18 @@ const Modal: React.FC = () => {
             name="element"
             onChange={(e) => setPrioritie(e.target.value)}
           >
-            <option value="">Приоритет</option>
             {priorities &&
               priorities.map(({ name, label, color }) => {
                 if (name === 'default') {
                   return null;
                 }
                 return (
-                  <option value={label} key={name} className={color}>
-                    {label}
-                  </option>
+                  <option
+                    value={label}
+                    key={name}
+                    className={color}
+                    label={label}
+                  />
                 );
               })}
           </select>
@@ -132,19 +138,19 @@ const Modal: React.FC = () => {
           <select
             required
             className="bg-[#31333e] rounded-md px-3 border-0 outline-0 appearance-none text-center cursor-pointer"
-            id="element"
+            id="project"
             name="element"
-            onChange={(e) => setCategorie(e.target.value)}
+            onChange={(e) => {
+              setProject({
+                projectId: e.target.id,
+                projectName: e.target.value,
+              });
+            }}
           >
-            <option value="cat">Категория</option>
-
-            {categories &&
-              categories.map(({ name, label }) => {
-                return (
-                  <option value={label} key={name}>
-                    {label}
-                  </option>
-                );
+            <option value="Входящие" label="Входящие" />
+            {projects &&
+              projects.map(({ id, title }) => {
+                return <option value={title} key={id} label={title} />;
               })}
           </select>
           <div className="flex justify-end gap-2">
